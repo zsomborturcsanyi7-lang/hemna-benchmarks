@@ -1,0 +1,1 @@
+import torch; print(f'PyTorch {torch.__version__}'); print(f'CUDA: {torch.cuda.is_available()}'); print(f'torch.compile: {hasattr(torch, "compile")}')

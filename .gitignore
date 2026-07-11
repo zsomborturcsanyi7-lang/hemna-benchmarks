@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.spec
+*.pkl
+*.pt
+*.pth
+checkpoints/
+logs/
+*.log
+
+# Node.js
+node_modules/
+npm-debug.log*
+.puppeteer_data/
+.puppeteer_observer_data/
+
+# Environment & secrets
+.env
+.env.*
+*.key
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Project specific
+ffmpeg.zip
+*.exe
+database.sqlite
+search_results/
