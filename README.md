@@ -1,5 +1,8 @@
 # HEMNA — Heterogeneous Multi-Scale Neural Architecture
 
+**Status:** ⚠️ Prototype — benchmarks run, 300M training plan ready, execution pending
+
+
 **Version:** 3.0  
 **Author:** Zsombi & Hermes Agent (Nous Research)  
 **Status:** Research & development
