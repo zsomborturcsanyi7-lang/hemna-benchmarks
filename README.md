@@ -1,158 +1,158 @@
-# HEMNA — Heterogén Multi-Skálájú Neurális Architektúra
+# HEMNA — Heterogeneous Multi-Scale Neural Architecture
 
-**Verzió:** 3.0  
-**Szerző:** Zsombi & Hermes Agent (Nous Research)  
-**Státusz:** Kutatás & fejlesztés alatt
-
----
-
-## Leírás
-
-A HEMNA egy kísérleti neurális architektúra, amely heterogén, többszintű rétegekből épül fel (Tier1, Tier2, Tier3). A projekt célja egy alternatív MLP/FFN architektúra benchmarkolása és összehasonlítása a hagyományos transzformer rétegekkel. A projekt tartalmaz magyar nyelvi modell traininget is (60M → 300M paraméter), SentencePiece tokenizerrel és saját adatpipeline-nal.
+**Version:** 3.0  
+**Author:** Zsombi & Hermes Agent (Nous Research)  
+**Status:** Research & development
 
 ---
 
-## Fájlszerkezet
+## Description
+
+HEMNA is an experimental neural architecture built from heterogeneous, multi-level layers (Tier1, Tier2, Tier3). The project aims to benchmark and compare an alternative MLP/FFN architecture against traditional transformer layers. The project also includes Hungarian language model training (60M → 300M parameters), with a SentencePiece tokenizer and a custom data pipeline.
+
+---
+
+## File Structure
 
 ```
 HEMNA/
 │
-├── prototype/                    # Prototípusok és kísérletek
-│   ├── bench_all.py              # Teljes HEMNA benchmark (T1+T2+T3 vs MLP)
-│   ├── bench_hemna_vs_mlp.py     # HEMNA vs MLP összehasonlítás
+├── prototype/                    # Prototypes and experiments
+│   ├── bench_all.py              # Full HEMNA benchmark (T1+T2+T3 vs MLP)
+│   ├── bench_hemna_vs_mlp.py     # HEMNA vs MLP comparison
 │   ├── benchmark_ckpt.py         # Checkpoint benchmark
 │   │
-│   ├── 300m_terv.md              # 300M magyar modell terv
-│   ├── train_300m.py             # 300M paraméteres training
-│   ├── continue_300m.py          # Training folytatása
-│   ├── train_v2.py               # Továbbfejlesztett training loop
+│   ├── 300m_terv.md              # 300M Hungarian model plan
+│   ├── train_300m.py             # 300M parameter training
+│   ├── continue_300m.py          # Continue training
+│   ├── train_v2.py               # Improved training loop
 │   │
-│   ├── test_100.py               # 100 lépés teszt
-│   ├── test_120m.py              # 120M modell teszt
-│   ├── test_300m_final.py        # 300M végső teszt
-│   ├── test_10steps.py           # 10 lépés gyorsteszt
-│   ├── test_minimal.py           # Minimál teszt
-│   ├── test_nan.py               # NaN detekció teszt
-│   ├── test_dataload.py          # Adatbetöltő teszt
-│   ├── test_speed2.py            # Sebesség teszt v2
-│   ├── test_accum.py             # Gradiens akkumuláció teszt
-│   ├── test_vers.py              # Verzió teszt
+│   ├── test_100.py               # 100-step test
+│   ├── test_120m.py              # 120M model test
+│   ├── test_300m_final.py        # 300M final test
+│   ├── test_10steps.py           # 10-step quick test
+│   ├── test_minimal.py           # Minimal test
+│   ├── test_nan.py               # NaN detection test
+│   ├── test_dataload.py          # Data loader test
+│   ├── test_speed2.py            # Speed test v2
+│   ├── test_accum.py             # Gradient accumulation test
+│   ├── test_vers.py              # Version test
 │   │
-│   ├── combine_data.py           # Adatok kombinálása
-│   ├── combine_no_wiki.py        # Kombinálás Wiki nélkül
-│   ├── clean_data.py             # Adattisztítás
-│   ├── check_data.py             # Adatellenőrzés
-│   ├── download_more.py          # További adatok letöltése
+│   ├── combine_data.py           # Data combination
+│   ├── combine_no_wiki.py        # Combine without Wiki
+│   ├── clean_data.py             # Data cleaning
+│   ├── check_data.py             # Data verification
+│   ├── download_more.py          # Download additional data
 │   │
-│   ├── extract_subs.py           # Felirat kinyerés
-│   ├── check_subs_enc.py         # Felirat kódolás ellenőrzés
-│   ├── sample_subs.py            # Felirat mintavételezés
-│   ├── tokenize_subs.py          # Felirat tokenizálás
+│   ├── extract_subs.py           # Subtitle extraction
+│   ├── check_subs_enc.py         # Subtitle encoding check
+│   ├── sample_subs.py            # Subtitle sampling
+│   ├── tokenize_subs.py          # Subtitle tokenization
 │   │
-│   ├── test_lm_cli.py            # Nyelvi modell CLI teszt
-│   ├── test_batch.py             # Batch teszt
-│   ├── test_batch2.py            # Batch teszt v2
-│   ├── profile_step.py           # Profilozó lépés
-│   ├── check_pytorch.py          # PyTorch verzió ellenőrzés
+│   ├── test_lm_cli.py            # Language model CLI test
+│   ├── test_batch.py             # Batch test
+│   ├── test_batch2.py            # Batch test v2
+│   ├── profile_step.py           # Profiler step
+│   ├── check_pytorch.py          # PyTorch version check
 │   │
-│   ├── read_log.py               # Log olvasó
+│   ├── read_log.py               # Log reader
 │   ├── neura_monitor.py          # Training monitor
-│   ├── wake_gpu.py               # GPU ébresztő
+│   ├── wake_gpu.py               # GPU wake-up
 │   │
-│   ├── NEURA_AGENT_PLAN.md       # Agent terv
+│   ├── NEURA_AGENT_PLAN.md       # Agent plan
 │   │
-│   ├── run_training.bat          # Training indító
-│   ├── run_bg.bat                # Háttérben indító
-│   ├── run_hold.bat              # Training tartó ablakkal
-│   ├── run_training.vbs          # VBS indító
-│   ├── create_task.ps1           # Ütemezett feladat (PowerShell)
-│   ├── start_schtask.ps1         # Scheduled task indító
+│   ├── run_training.bat          # Training launcher
+│   ├── run_bg.bat                # Background launcher
+│   ├── run_hold.bat              # Training with persistent window
+│   ├── run_training.vbs          # VBS launcher
+│   ├── create_task.ps1           # Scheduled task (PowerShell)
+│   ├── start_schtask.ps1         # Scheduled task launcher
 │   │
-│   ├── _b64.txt ... _b64_v3.txt  # Base64 kódolt adatok
+│   ├── _b64.txt ... _b64_v3.txt  # Base64-encoded data
 │   └── _b64_working.txt / _b64_opt.txt / _b64_orig.txt
 │
-└── tests_lm.bat                  # Nyelvi modell tesztek
+└── tests_lm.bat                  # Language model tests
 ```
 
 ---
 
-## Használat
+## Usage
 
-### HEMNA benchmark futtatása
+### Running HEMNA Benchmark
 
 ```bash
 cd prototype
 pip install torch numpy
 
-# Teljes benchmark (T1+T2+T3 vs MLP)
+# Full benchmark (T1+T2+T3 vs MLP)
 python bench_all.py
 
-# HEMNA vs MLP összehasonlítás
+# HEMNA vs MLP comparison
 python bench_hemna_vs_mlp.py
 ```
 
-### Magyar nyelvi modell training
+### Hungarian Language Model Training
 
 ```bash
-# 300M paraméteres modell training
+# 300M parameter model training
 cd prototype
 python train_300m.py
 
-# VAGY batch fájllal
+# OR via batch file
 run_training.bat
 
-# Training folytatása
+# Continue training
 python continue_300m.py
 
-# Monitorozás
+# Monitoring
 python neura_monitor.py
 ```
 
-### Adatelőkészítés
+### Data Preparation
 
 ```bash
-# Feliratok kinyerése
+# Subtitle extraction
 python extract_subs.py
 
-# Tokenizálás
+# Tokenization
 python tokenize_subs.py
 
-# Adatok kombinálása
+# Data combination
 python combine_data.py
 
-# Adattisztítás
+# Data cleaning
 python clean_data.py
 ```
 
 ---
 
-## 300M Modell Terv
+## 300M Model Plan
 
-| Preset | Dim | Layers | Heads | FFN | Paraméterek | Batch | Seq Len |
-|--------|-----|--------|-------|-----|-------------|-------|---------|
+| Preset | Dim | Layers | Heads | FFN | Parameters | Batch | Seq Len |
+|--------|-----|--------|-------|-----|------------|-------|---------|
 | 60M | 768 | 6 | 12 | 2304 | 60M | 4 | 512 |
 | **120M** | 768 | 12 | 12 | 2304 | 120M | 4 | 512 |
 | 180M | 1024 | 12 | 16 | 3072 | 180M | 4 | 256 |
 | **300M** | 1024 | 24 | 16 | 3072 | 354M | 2 | 256 |
 
-### Architektúra
+### Architecture
 - Decoder-only Transformer
-- GQA (Grouped Query Attention) — 16 head, 4 KV head
+- GQA (Grouped Query Attention) — 16 heads, 4 KV heads
 - Gated FFN (SwiGLU)
-- RMSNorm normalizáció
-- Tied embedding (input és output közös)
+- RMSNorm normalization
+- Tied embedding (shared input and output)
 
 ---
 
-## Függőségek
+## Dependencies
 
 - **Python** 3.10+
-- **PyTorch** 2.0+ (CUDA ajánlott)
+- **PyTorch** 2.0+ (CUDA recommended)
 - **SentencePiece** (tokenizer)
 - **NumPy**
 
 ---
 
-## Fejlesztő
+## Developer
 
-Zsombi & Hermes Agent (Nous Research) (AI asszisztens segítségével)
+Zsombi & Hermes Agent (Nous Research)
