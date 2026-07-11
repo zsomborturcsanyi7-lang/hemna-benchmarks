@@ -1,7 +1,7 @@
 # HEMNA — Heterogén Multi-Skálájú Neurális Architektúra
 
 **Verzió:** 3.0  
-**Szerző:** Zsombi (AI asszisztens segítségével)  
+**Szerző:** Zsombi & Hermes Agent (Nous Research)  
 **Státusz:** Kutatás & fejlesztés alatt
 
 ---
@@ -155,4 +155,4 @@ python clean_data.py
 
 ## Fejlesztő
 
-Zsombi (AI asszisztens segítségével) (AI asszisztens segítségével)
+Zsombi & Hermes Agent (Nous Research) (AI asszisztens segítségével)
