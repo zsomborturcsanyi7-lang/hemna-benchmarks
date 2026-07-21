@@ -1,20 +1,19 @@
-# HEMNA — Heterogén Multi-Skálájú Neurális Architektúra benchmarkok
+# HEMNA — Heterogeneous Multi-Scale Neural Architecture Benchmarks
 
-**Status:** ⚠️ Prototype — benchmarkok lefuttatva, 300M tanítási terv kész, végrehajtás függőben
+**Status:** ⚠️ Prototype — benchmarks run, 300M training plan ready, execution pending
 
-Kísérleti neurális architektúra heterogén, többszintű rétegekkel (Tier1, Tier2, Tier3). Benchmarkokat tartalmaz alternatív MLP/FFN architektúrák összehasonlítására hagyományos transformer rétegekkel. 60M → 300M paraméteres magyar nyelvmodell tanítás.
+Experimental neural architecture with heterogeneous multi-scale layers (Tier1, Tier2, Tier3). Benchmarks comparing alternative MLP/FFN architectures against traditional transformer layers. 60M → 300M Hungarian language model training.
 
 ## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
 
-**Ez a projekt NINCS KÉSZEN. Bárki folytathatja, aki akarja!**
-Ezt a projektet Zsombi & Hermes Agent (Nous Research) közösen fejlesztette, de egyik projekt sincs 100%-osan befejezve.
+This project was developed by Zsombi & Hermes Agent (Nous Research).
 
 ---
 
-## Tartalom
-- `prototype/` — HEMNA prototípus implementáció
-- Benchmark szkriptek
-- 300M tanítási terv
+## Contents
+- `prototype/` — HEMNA prototype implementation
+- benchmark scripts
+- 300M training plan
 
-## Fejlesztő
+## Developer
 Zsombi & Hermes Agent (Nous Research)
