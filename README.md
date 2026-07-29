@@ -1,4 +1,4 @@
-# HEMNA — Heterogeneous Multi-Scale Neural Architecture Benchmarks
+# hemna-benchmarks
 
 **Status:** ⚠️ Prototype — benchmarks run, 300M training plan ready, execution pending
 
