@@ -1,19 +1,18 @@
 # hemna-benchmarks
 
-**Status:** ⚠️ Prototype — benchmarks run, 300M training plan ready, execution pending
+HEMNA architektúra mérések és tesztek.
 
-Experimental neural architecture with heterogeneous multi-scale layers (Tier1, Tier2, Tier3). Benchmarks comparing alternative MLP/FFN architectures against traditional transformer layers. 60M → 300M Hungarian language model training.
+## 📌 A projekt célja
+Teljesítmény és pontossági mérések elvégzése a kísérleti HEMNA modell-struktúrán.
 
-## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
+## ⚙️ Technológiai stakk
+- Python, PyTorch
 
-This project was developed by Zsombi & Hermes Agent (Nous Research).
+## 🚀 Telepítés és Használat
+```bash
+git clone https://github.com/zsomborturcsanyi7-lang/hemna-benchmarks.git
+cd hemna-benchmarks
+```
 
----
-
-## Contents
-- `prototype/` — HEMNA prototype implementation
-- benchmark scripts
-- 300M training plan
-
-## Developer
-Zsombi & Hermes Agent (Nous Research)
+## 📊 Status
+⚠️ **Mérési scriptek**.
