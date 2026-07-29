@@ -1,18 +1,18 @@
 # hemna-benchmarks
 
-HEMNA architektúra mérések és tesztek.
+Benchmarks and performance experiments for the HEMNA architecture.
 
-## 📌 A projekt célja
-Teljesítmény és pontossági mérések elvégzése a kísérleti HEMNA modell-struktúrán.
+## 📌 Overview & Purpose
+Evaluates computational throughput, accuracy, and memory consumption of the experimental HEMNA model design.
 
-## ⚙️ Technológiai stakk
+## ⚙️ Tech Stack & Architecture
 - Python, PyTorch
 
-## 🚀 Telepítés és Használat
+## 🚀 Installation & Quickstart
 ```bash
 git clone https://github.com/zsomborturcsanyi7-lang/hemna-benchmarks.git
 cd hemna-benchmarks
 ```
 
-## 📊 Status
-⚠️ **Mérési scriptek**.
+## 📊 Project Status
+⚠️ **Benchmark Suite**.
